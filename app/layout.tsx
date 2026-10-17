@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import "./heroes.css";
 
 export const metadata: Metadata = {
   title: { default: "復縁可能性診断｜今の向き合い方をやさしく整理", template: "%s | 復縁可能性診断" },
@@ -17,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Link className="brand" href="/">復縁可能性診断<span>気持ちと距離感を、ゆっくり整理</span></Link>
         <nav aria-label="メインナビゲーション"><Link href="/">トップ</Link><Link href="/diagnosis">診断する</Link></nav>
       </div></header>
-      <main id="main" className="container main">{children}</main>
+      <main id="main" className="main">{children}</main>
       <footer className="site-footer"><div className="container">
         <p className="brand">復縁可能性診断</p>
         <p>ご自身の気持ちと、今できることを整理するための情報サイトです。</p>

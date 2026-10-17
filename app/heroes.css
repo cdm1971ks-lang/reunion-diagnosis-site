@@ -1,0 +1,42 @@
+/* Only the hero spans the viewport. Text and body keep the shared container. */
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #eadbd1;
+}
+
+.page-hero--home { min-height: 580px; }
+.page-hero__image { object-fit: cover; object-position: center 58%; z-index: -2; }
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(255, 252, 249, .70) 0%, rgba(255, 252, 249, .46) 44%, rgba(255, 252, 249, .03) 100%);
+}
+.page-hero__inner { padding-block: 64px; }
+.page-hero__copy { width: min(62%, 680px); }
+.page-hero h1 { font-size: clamp(2rem, 4vw, 3.4rem); overflow-wrap: anywhere; }
+.page-hero--home h1 { font-size: clamp(2rem, 4.8vw, 3.7rem); }
+.page-hero .lead, .page-hero .note { color: #584841; }
+.page-hero__copy { text-shadow: 0 1px 12px rgba(255, 252, 249, .5); }
+.page-hero .button { text-shadow: none; }
+.main-content { padding-block: 48px 72px; }
+.main-content > .section:first-child { margin-top: 0; }
+
+@media (max-width: 700px) {
+  .page-hero { min-height: 400px; }
+  .page-hero--home { min-height: 620px; }
+  .page-hero__inner { padding-block: 48px; }
+  .page-hero__copy { width: 100%; max-width: 540px; }
+  .page-hero__image { object-position: right center; }
+  .page-hero__overlay {
+    background: linear-gradient(105deg, rgba(255, 252, 249, .72) 0%, rgba(255, 252, 249, .48) 55%, rgba(255, 252, 249, .05) 100%);
+  }
+  .page-hero h1 { font-size: clamp(1.85rem, 7vw, 2.4rem); }
+  .main-content { padding-block: 32px 48px; }
+}
