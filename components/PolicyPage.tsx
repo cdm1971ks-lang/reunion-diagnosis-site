@@ -1,3 +1,5 @@
+import { PageHero } from "@/components/PageHero";
+
 export function PolicyPage({ title, children }: { title: string; children: React.ReactNode }) {
-  return <article className="policy card"><p className="eyebrow">Information</p><h1>{title}</h1>{children}</article>;
+  return <><PageHero title={title} description="安心してご利用いただくためのご案内です。" /><div className="container main-content"><article className="policy card">{children}</article></div></>;
 }
