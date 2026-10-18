@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import "./heroes.css";
+import "./illustrations.css";
 
 export const metadata: Metadata = {
   title: { default: "復縁可能性診断｜今の向き合い方をやさしく整理", template: "%s | 復縁可能性診断" },

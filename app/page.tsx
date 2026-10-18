@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 
 export default function Home() {
@@ -13,9 +14,9 @@ export default function Home() {
     <div className="container main-content">
     <section className="section"><p className="eyebrow">About this diagnosis</p><h2>関係の答えを出す前に、<br />今の自分を見つめる時間に。</h2>
       <div className="grid">
-        <article className="card"><span className="card-number">01</span><h3>今の距離感を整理する</h3><p>別れてからの時間や連絡の状況を、落ち着いて振り返ります。</p></article>
-        <article className="card"><span className="card-number">02</span><h3>自分の回復も大切にする</h3><p>復縁したい気持ちを否定せず、休息や安心を優先する選択も考えます。</p></article>
-        <article className="card"><span className="card-number">03</span><h3>今日できることを見つける</h3><p>5つの向き合い方から、今の回答に合った行動のヒントをお伝えします。</p></article>
+        <article className="card"><Image className="intro-illustration" src="/images/intro/distance.webp" alt="" width={900} height={600} sizes="(max-width: 700px) calc(100vw - 80px), (max-width: 1120px) 28vw, 274px" /><span className="card-number">01</span><h3>今の距離感を整理する</h3><p>別れてからの時間や連絡の状況を、落ち着いて振り返ります。</p></article>
+        <article className="card"><Image className="intro-illustration" src="/images/intro/recovery.webp" alt="" width={900} height={600} sizes="(max-width: 700px) calc(100vw - 80px), (max-width: 1120px) 28vw, 274px" /><span className="card-number">02</span><h3>自分の回復も大切にする</h3><p>復縁したい気持ちを否定せず、休息や安心を優先する選択も考えます。</p></article>
+        <article className="card"><Image className="intro-illustration" src="/images/intro/actions.webp" alt="" width={900} height={600} sizes="(max-width: 700px) calc(100vw - 80px), (max-width: 1120px) 28vw, 274px" /><span className="card-number">03</span><h3>今日できることを見つける</h3><p>5つの向き合い方から、今の回答に合った行動のヒントをお伝えします。</p></article>
       </div>
     </section>
     <section className="notice section"><h2>安心して使っていただくために</h2><p>復縁の成功確率や、相手の気持ちを判定するものではありません。連絡を拒まれている場合は、その意思を尊重することを大切にしています。</p><p>回答は画面内だけで扱い、外部への送信・永続保存は行いません。医療や心理カウンセリングの代わりになるものではありません。</p></section>

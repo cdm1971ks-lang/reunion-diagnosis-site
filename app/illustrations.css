@@ -1,0 +1,16 @@
+.intro-illustration,
+.result-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #faf3eb;
+}
+
+.intro-illustration { margin-bottom: 24px; }
+.result-illustration { max-width: 440px; margin: 24px auto 32px; }
+
+@media (max-width: 700px) {
+  .intro-illustration { margin-bottom: 20px; }
+  .result-illustration { margin-block: 20px 24px; }
+}

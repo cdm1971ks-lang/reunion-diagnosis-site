@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useReducer, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { getReunionResult, reunionQuestions, reunionResults } from "@/lib/reunionDiagnosis";
 import { initialQuizState, quizReducer } from "@/lib/quizFlow";
 
@@ -10,7 +11,8 @@ export function ReunionDiagnosisClient() {
   const interacted = useRef(false);
   useEffect(() => { if (interacted.current) heading.current?.focus(); }, [state.index, state.finished]);
   const act = (action: Parameters<typeof quizReducer>[1]) => { interacted.current = true; dispatch(action); };
-  const result = state.finished ? reunionResults[getReunionResult(state.answers)] : null;
+  const resultKey = state.finished ? getReunionResult(state.answers) : null;
+  const result = resultKey ? reunionResults[resultKey] : null;
   const progress = state.finished ? 10 : state.index;
 
   return <section className="quiz card" aria-label="質問と診断結果">
@@ -18,6 +20,7 @@ export function ReunionDiagnosisClient() {
     <div className="progress" role="progressbar" aria-label="回答の進捗" aria-valuemin={0} aria-valuemax={10} aria-valuenow={progress}><span style={{ width: `${progress * 10}%` }} /></div>
     {result ? <div className="result">
       <p className="eyebrow">今のあなたに合う向き合い方</p><h2 tabIndex={-1} ref={heading}>{result.title}</h2>
+      <Image className="result-illustration" src={`/images/results/${resultKey}.webp`} alt="" width={900} height={600} sizes="(max-width: 700px) calc(100vw - 70px), 440px" />
       <p>{result.message}</p><h3>今できること</h3>
       <ol className="action-list">{result.actions.map(action => <li key={action}>{action}</li>)}</ol>
       <div className="notice"><p>この結果は回答をもとにした気持ちの整理のヒントです。復縁の確率や相手の気持ちを判定するものではなく、医療や心理カウンセリングの代わりにはなりません。</p><p>連絡を断られている場合は、別の手段で連絡せず、その意思を尊重してください。</p></div>
